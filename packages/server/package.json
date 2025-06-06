@@ -1,0 +1,28 @@
+{
+  "name": "@frame-bridge/server",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/server.umd.cjs",
+  "module": "./dist/server.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/server.js",
+      "require": "./dist/server.umd.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx}\""
+  },
+  "dependencies": {
+    "@frame-bridge/shared": "workspace:*"
+  }
+}

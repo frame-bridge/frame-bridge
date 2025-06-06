@@ -1,0 +1,19 @@
+{
+	"name": "@frame-bridge/shared",
+	"version": "0.0.1",
+	"private": true,
+	"source": "./src/index.ts",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsc -b",
+		"format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
+		"format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx}\""
+	},
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	}
+}
