@@ -1,7 +1,8 @@
 // Client library entry point
 console.log('Hello from @frame-bridge/client');
 
-import type { Action, MessagePayload, RequestPayload } from '@frame-bridge/shared';
+import type { Action, MessagePayload, RequestPayload, NodeId } from '@frame-bridge/shared';
+import { MessageType, createNodeId } from '@frame-bridge/shared';
 
 type PendingRequest = {
 	resolve: (value: unknown) => void;
@@ -21,6 +22,10 @@ export function init({ serverFrame, targetOrigin, sourceName, destinationName }:
 	const port = channel.port1;
 	let connected = false;
 
+	// Validate node IDs at initialization
+	const sourceNodeId = createNodeId(sourceName);
+	const destinationNodeId = createNodeId(destinationName);
+
 	const pendingRequests = new Map<string, PendingRequest>();
 
 	// 1. Initial connection message
@@ -37,7 +42,7 @@ export function init({ serverFrame, targetOrigin, sourceName, destinationName }:
 	port.onmessage = (event: MessageEvent<MessagePayload>) => {
 		const payload = event.data;
 
-		if (payload.type === 'RESPONSE') {
+		if (payload.type === MessageType.RESPONSE) {
 			// Handle connection confirmation
 			if (payload.data === 'frame-bridge-connected' && !connected) {
 				connected = true;
@@ -67,11 +72,11 @@ export function init({ serverFrame, targetOrigin, sourceName, destinationName }:
 			const id = crypto.randomUUID();
 			const payload: RequestPayload = {
 				id,
-				source: sourceName,
-				destination: destinationName,
+				source: sourceNodeId,
+				destination: destinationNodeId,
 				action,
 				data,
-				type: 'REQUEST',
+				type: MessageType.REQUEST,
 			};
 
 			const timeout = window.setTimeout(() => {
