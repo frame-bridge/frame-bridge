@@ -28,7 +28,7 @@ jobs:
         run: pnpm install
 
       - name: Build packages
-        run: pnpm run build --filter=@frame-bridge/*
+        run: pnpm run build
 
       - name: Publish to GitHub Packages
         run: pnpm publish --filter=@frame-bridge/* --no-git-checks
