@@ -1,0 +1,7 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+- all dependencies are managed with pnpm
+- pnpm is responsible for managing the monorepo

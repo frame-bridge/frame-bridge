@@ -1,0 +1,20 @@
+{
+	"name": "demo",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "concurrently \"vite\" \"vite --config vite.iframe.config.ts\"",
+		"dev:host": "vite",
+		"dev:iframe": "vite --config vite.iframe.config.ts"
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.2",
+		"typescript": "^5.2.2",
+		"vite": "^5.3.1"
+	},
+	"dependencies": {
+		"@frame-bridge/client": "workspace:*",
+		"@frame-bridge/server": "workspace:*"
+	}
+}
