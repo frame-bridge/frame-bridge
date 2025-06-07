@@ -3,8 +3,8 @@
 	"private": true,
 	"description": "Libraries for consistent, one-way data flow between browser frames.",
 	"scripts": {
-		"build": "pnpm --filter \"@frame-bridge/*\" build",
-		"dev": "pnpm --stream -r dev",
+		"build": "pnpm -r build",
+		"dev": "pnpm --filter=demo dev",
 		"lint": "pnpm -r lint",
 		"format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
 		"format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\""
@@ -15,5 +15,12 @@
 		"vite": "^5.2.11",
 		"vite-plugin-dts": "^3.9.1"
 	},
-	"packageManager": "pnpm@9.1.0"
+	"packageManager": "pnpm@9.1.0",
+	"keywords": [
+		"iframe",
+		"cross-frame",
+		"cross-origin",
+		"shared storage"
+	],
+	"author": "brian ruddy <brian@ruddy.io>"
 }

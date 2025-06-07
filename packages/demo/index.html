@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Frame Bridge Demo (Server)</title>
+		<style>
+			iframe {
+				display: block;
+				max-width: 90%;
+				margin: 1rem auto;
+				border: 1px solid #ccc;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Frame Bridge Demo (Server)</h1>
+		<iframe src="http://localhost:3001" width="600" height="400"></iframe>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
+</html>
